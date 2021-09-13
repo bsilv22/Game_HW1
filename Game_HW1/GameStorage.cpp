@@ -37,6 +37,21 @@ gameStorage::gameStorage()
 
 }
 
+void gameStorage::Set(int index, game g)
+{
+	if (index <= 2 && index >= 0) {
+		gameData[index] = g;
+	}
+
+	
+}
+
+game gameStorage::Get(int index)
+{
+	return gameData[index];
+
+}
+
 
 
 

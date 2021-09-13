@@ -35,7 +35,8 @@ public:
 	//default constructor
 	gameStorage();
 	
-	
+	void Set(int index, game g);
+	game Get(int index);
 
 	
 

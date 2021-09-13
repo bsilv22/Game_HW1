@@ -32,7 +32,10 @@ int main()
 {
 	
 	gameStorage();
-	cout << gameData[0];
-	
+	int num;
+	game g;
+	gameStorage gs;
+	//gs.gameData[0] = g;
+	gs.
 	
 }
