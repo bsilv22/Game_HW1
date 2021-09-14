@@ -26,6 +26,8 @@
 #include "GameStorage.h"
 #include <iostream>
 #include <ostream>
+#include <string>
+
 using namespace std;
 
 int main()
@@ -33,14 +35,20 @@ int main()
 	
 	gameStorage();
 	int num;
-	game g("Block", "test", 5);
+	game g("Blocks", "Everyone", 5);
+	game g2("Cards", "Teen", 10);
+	game g3("Checkers", "Everyone", 15);
 	gameStorage gs;
 	//gs.gameData[0] = g;
 	//gs.
+	//gameData[0];
 	
-	//Why wont this work??
-	gs.gameData[0] = g;
+	gs.Set(0, g);
+	gs.Set(1, g2);
+	gs.Set(2, g3);
+
 	
+	cout << gs.Get(0);
 	
 	
 	

@@ -48,12 +48,25 @@ void gameStorage::Set(int index, game g)
 
 game gameStorage::Get(int index)
 {
+	
 	return gameData[index];
 
 }
 
+/**
 
 
-
+//how to search only for the price inside each instance, and the return only that instance??
+game gameStorage::MostExpensive(game arr[])
+{
+	for (int i = 0; i < 3; i++)
+	{
+		if (arr[i].getPrice > temp)
+			temp = arr[i].getPrice;
+	}
+	//not sure how to return the object
+	return temp;
+}
+**/
 
 

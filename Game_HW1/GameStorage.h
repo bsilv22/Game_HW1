@@ -35,12 +35,18 @@ private:
 public:
 	//default constructor
 	gameStorage();
-	int temp = 0;
+	game temp;
+	
+	
 	
 	void Set(int index, game g);
 	game Get(int index);
 	//int GamePriceCount(double lowerBound, double upperBound);
-	game MostExpensive();
+	
+	//Returns most expensive game.
+	game MostExpensive(game arr[]);
+	
+	double PriceTotal();
 	
 
 
