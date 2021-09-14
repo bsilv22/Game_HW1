@@ -24,9 +24,9 @@
 
 
 #include "Game.h"
+#include "GameStorage.h"
 #include <string>
 #include <ostream>
-#include "GameStorage.h"
 using namespace std;
 
 //This is the default constructor definition
@@ -73,3 +73,19 @@ ostream& operator<<(ostream& os, game& rhs)
 	return os;
 
 }
+
+//getters defined
+//gets title
+string game::getTitle() { return title; }
+//gets esrb
+string game::getEsrb() { return esrb; }
+//gets price
+double game::getPrice() { return price; }
+
+//setters defined
+//sets title
+void game::setTitle(string theTitle) { title = theTitle; }
+//sets esrb
+void game::setEsrb(string theEsrb) { esrb = theEsrb; }
+//sets price
+void game::setPrice(double thePrice) { price = thePrice; }

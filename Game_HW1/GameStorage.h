@@ -24,6 +24,7 @@
 #include "Game.h"
 #include <string>
 #include <ostream>
+#include <iostream>
 using namespace std;
 
 class gameStorage
@@ -34,10 +35,12 @@ private:
 public:
 	//default constructor
 	gameStorage();
+	int temp = 0;
 	
 	void Set(int index, game g);
 	game Get(int index);
-
+	//int GamePriceCount(double lowerBound, double upperBound);
+	game MostExpensive();
 	
 
 

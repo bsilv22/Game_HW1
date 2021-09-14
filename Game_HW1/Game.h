@@ -22,7 +22,7 @@
 
 #pragma once
 #include <string>
-#include "GameStorage.h"
+
 using namespace std;
 
 class game
@@ -53,14 +53,14 @@ public:
 
 
 	//Function prototypes for member variables - getters
-	string getTitle() { return title; }
-	string getEsrb() { return esrb; }
-	double getPrice() { return price; }
+	string getTitle();
+	string getEsrb();
+	double getPrice();
 
 	//Setters
-	void setTitle(string theTitle) { title = theTitle; }
-	void setEsrb(string theEsrb) { esrb = theEsrb; }
-	void setPrice(double thePrice) { price = thePrice; }
+	void setTitle(string theTitle);
+	void setEsrb(string theEsrb);
+	void setPrice(double thePrice);
 
 
 

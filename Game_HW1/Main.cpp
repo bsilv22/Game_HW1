@@ -33,9 +33,15 @@ int main()
 	
 	gameStorage();
 	int num;
-	game g;
+	game g("Block", "test", 5);
 	gameStorage gs;
 	//gs.gameData[0] = g;
-	gs.
+	//gs.
+	
+	//Why wont this work??
+	gs.gameData[0] = g;
+	
+	
+	
 	
 }
