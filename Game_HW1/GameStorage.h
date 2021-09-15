@@ -41,12 +41,13 @@ public:
 	
 	void Set(int index, game g);
 	game Get(int index);
+	
 	//int GamePriceCount(double lowerBound, double upperBound);
 	
-	//Returns most expensive game.
-	game MostExpensive(game arr[]);
 	
-	double PriceTotal();
+	//game MostExpensive(game arr[]);
+	
+	
 	
 
 

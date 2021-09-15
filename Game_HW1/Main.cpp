@@ -47,8 +47,10 @@ int main()
 	gs.Set(1, g2);
 	gs.Set(2, g3);
 
-	
-	cout << gs.Get(0);
+	//Overload needed? How?
+	game temp;
+	temp = gs.Get(0);
+	cout << temp;
 	
 	
 	

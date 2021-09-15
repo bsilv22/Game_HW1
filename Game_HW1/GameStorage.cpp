@@ -62,10 +62,10 @@ game gameStorage::MostExpensive(game arr[])
 	for (int i = 0; i < 3; i++)
 	{
 		if (arr[i].getPrice > temp)
-			temp = arr[i].getPrice;
+			temp = arr[i].getPrice();
 	}
 	//not sure how to return the object
-	return temp;
+	return object;
 }
 **/
 
