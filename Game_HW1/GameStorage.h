@@ -35,21 +35,30 @@ private:
 public:
 	//default constructor
 	gameStorage();
+	
+	//Various variables for some of the functions
 	game temp;
+	double max;
+	double total = 0;
+	int gameCounter = 0;
 	
-	
-	
+	//Set and get prototypes 
 	void Set(int index, game g);
 	game Get(int index);
 	
-	//int GamePriceCount(double lowerBound, double upperBound);
 	
 	
-	//game MostExpensive(game arr[]);
+	//The function prototypes
+	game MostExpensive();
+	double PriceTotal();
+	int GamePriceCount(double lowerBound, double upperBound);
+	int Size();
+	void Initialize();
+	string GetAuthor();
 	
 	
 	
-
+	//bool FindByTitle(string name, game& g);
 
 };
 
