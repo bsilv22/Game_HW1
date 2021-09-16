@@ -112,14 +112,24 @@ game gameStorage::Get(int index)
 
 game gameStorage::MostExpensive()
 {
+	int push = 0;
+	int max = 0;
+	
 	for (int i = 0; i < 3; i++)
 	{
-		if (gameData[i].getPrice() > max)
-			max = gameData[i].getPrice();
-		return gameData[i];
+		if (gameData[i].getPrice() > gameData[i + 1].getPrice())
+		{
+			max = max;
+		}
+		else
+		{
+			push = i + 1;
+			max = push;
+		}
 	}
+	return gameData[max];
 	
-	//return game;
+	
 }
 
 
@@ -250,17 +260,19 @@ string gameStorage::GetAuthor()
 //**************************************************** 
 
 
-/**
+
 bool gameStorage::FindByTitle(string name, game& g)
 {
 	for (int i = 0; i < 3; i++)
 	{
-		if (gameData[i].getTitle() == name)
-			g = gameData[i].getTitle();
-		return true;
-			
+		if (gameData[i].getTitle() == name) {
+			g = gameData[i];
+			return true;
+		}
+		else { return false; }
+		
+
 		
 
 	}
 }
-**/

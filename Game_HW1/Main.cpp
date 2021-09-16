@@ -39,6 +39,8 @@ int main()
 	game g("Blocks", "Everyone", 12);
 	game g2("Cards", "Teen", 10);
 	game g3("Checkers", "Everyone", 15);
+	game g4;
+	
 	
 	//creating the array
 	gameStorage gs;
@@ -51,6 +53,9 @@ int main()
 	gs.Set(1, g2);
 	gs.Set(2, g3);
 	
+	
+
+
 
 	//gets the value of a game and assigns it to the array
 	game temp = gs.Get(1);
@@ -85,4 +90,17 @@ int main()
 	//Returns the authors name
 	cout << "The authors name is: " << gs.GetAuthor() << endl;
 
+	bool findTitle = gs.FindByTitle("Risk", temp);
+	cout << "If the title is in the array, this outputs a 1, or else it outputs 0: " << findTitle << endl << endl;
+
+	//Assigns g3 to g4;
+	g4 = g3;
+	cout << "g4 is assigned the values from g3: " << endl << g4 << endl << endl;
+
+	//Uses a copy of g3 to create a new instance called g6, and copies the member variables
+	game g6(g3);
+	cout << "After copying g3 into g6, g6 outputs the same information as g3: " << endl << g6 << endl;
+
+	
+	
 }

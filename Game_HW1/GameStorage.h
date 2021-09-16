@@ -55,10 +55,7 @@ public:
 	int Size();
 	void Initialize();
 	string GetAuthor();
-	
-	
-	
-	//bool FindByTitle(string name, game& g);
+	bool FindByTitle(string name, game& g);
 
 };
 
