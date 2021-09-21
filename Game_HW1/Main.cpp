@@ -37,7 +37,7 @@ int main()
 	
 	//Parametized constructors 
 	game g("Blocks", "Everyone", 12);
-	game g2("Cards", "Teen", 10);
+	game g2("Cards", "Teen", 20);
 	game g3("Checkers", "Everyone", 15);
 	game g4;
 	
@@ -90,7 +90,7 @@ int main()
 	//Returns the authors name
 	cout << "The authors name is: " << gs.GetAuthor() << endl;
 
-	bool findTitle = gs.FindByTitle("Risk", temp);
+	bool findTitle = gs.FindByTitle("Checkers",temp);
 	cout << "If the title is in the array, this outputs a 1, or else it outputs 0: " << findTitle << endl << endl;
 
 	//Assigns g3 to g4;
@@ -101,6 +101,5 @@ int main()
 	game g6(g3);
 	cout << "After copying g3 into g6, g6 outputs the same information as g3: " << endl << g6 << endl;
 
-	
 	
 }

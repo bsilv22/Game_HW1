@@ -42,7 +42,7 @@ using namespace std;
 //**************************************************** 
 gameStorage::gameStorage()
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		gameData[i] = game("Emtpy", "E", 0.00);
 	}
@@ -112,22 +112,15 @@ game gameStorage::Get(int index)
 
 game gameStorage::MostExpensive()
 {
-	int push = 0;
-	int max = 0;
+	game maxGame = gameData[0];
 	
 	for (int i = 0; i < 3; i++)
 	{
-		if (gameData[i].getPrice() > gameData[i + 1].getPrice())
-		{
-			max = max;
-		}
-		else
-		{
-			push = i + 1;
-			max = push;
-		}
+		
+		if (gameData[i].getPrice() > maxGame.getPrice())
+			maxGame = gameData[i];
 	}
-	return gameData[max];
+	return maxGame;
 	
 	
 }
@@ -148,7 +141,7 @@ game gameStorage::MostExpensive()
 //**************************************************** 
 double gameStorage::PriceTotal()
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		total += gameData[i].getPrice();
 	}
@@ -173,7 +166,7 @@ int gameStorage::GamePriceCount(double lowerBound, double upperBound)
 {
 	for (int i = 0; i < 3; i++)
 	{
-		if (gameData[i].getPrice() > lowerBound && gameData[i].getPrice() < upperBound)
+		if (gameData[i].getPrice() >= lowerBound && gameData[i].getPrice() <= upperBound)
 		{
 			gameCounter++;
 		}
@@ -268,11 +261,14 @@ bool gameStorage::FindByTitle(string name, game& g)
 		if (gameData[i].getTitle() == name) {
 			g = gameData[i];
 			return true;
-		}
-		else { return false; }
 		
-
+			
+		}
+		
+		return false;
 		
 
 	}
+	
 }
+

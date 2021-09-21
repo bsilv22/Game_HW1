@@ -56,6 +56,7 @@ public:
 	void Initialize();
 	string GetAuthor();
 	bool FindByTitle(string name, game& g);
+	
 
 };
 
