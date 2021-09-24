@@ -83,14 +83,15 @@ int main()
 	cout << "The highest priced game is: " << highestPrice << endl;
 
 	//This function initializes all games in the array to these default values 
-	gs.Initialize();
+	
+	//gs.Initialize(); //Works, but then titles cant be searched with the FindByTitle function since everything is initialized to a single value
 	game testing = gs.Get(0);
 	cout << testing << endl;
 
 	//Returns the authors name
 	cout << "The authors name is: " << gs.GetAuthor() << endl;
 
-	bool findTitle = gs.FindByTitle("Checkers",temp);
+	bool findTitle = gs.FindByTitle("hi",temp);
 	cout << "If the title is in the array, this outputs a 1, or else it outputs 0: " << findTitle << endl << endl;
 
 	//Assigns g3 to g4;

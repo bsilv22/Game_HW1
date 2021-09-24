@@ -265,10 +265,10 @@ bool gameStorage::FindByTitle(string name, game& g)
 			
 		}
 		
-		return false;
+		
 		
 
 	}
-	
+	return false;
 }
 
