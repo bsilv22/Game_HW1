@@ -30,9 +30,14 @@ using namespace std;
 class gameStorage
 {
 private:
-	game gameData[3];
-
+	
+	game *gameData;
+	gameData = new game[3];
+	
+	
 public:
+	
+	
 	//default constructor
 	gameStorage();
 	

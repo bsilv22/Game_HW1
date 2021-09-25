@@ -33,7 +33,7 @@ using namespace std;
 int main()
 {
 	//assigns all instances in the array to default
-	gameStorage();
+	
 	
 	//Parametized constructors 
 	game g("Blocks", "Everyone", 12);
@@ -55,52 +55,21 @@ int main()
 	
 	
 
+	g4 = gs.Get(0);
+	cout << "G4 is: " << g4 << endl;
 
+	game g5(g4);
 
-	//gets the value of a game and assigns it to the array
-	game temp = gs.Get(1);
-	cout << "Outputting a single game for an example: " << endl << temp << endl;
+	cout << "g5 copied from g4: " << g5 << endl;
+
+	gs.Set(0, g2);
+	g4 = gs.Get(0);
+
+	cout << "Now g4 is different then g5: " << g4 << endl;
+
+	cout << "Now g5 is different then g4: " << g5;
 	
-	//game temp2 = gs.Get(2);
-	//temp = gs.Get(0);
-
-	//Gets total price of all games combined
-	double totalPrices = gs.PriceTotal();
-	cout << "The total price of all arrays are " << totalPrices << endl;
-	
-	//Returns the amount of games with a price between both parameters
-	int priceCount = gs.GamePriceCount(11,16);
-	cout << "The number of total games between the given values is " << priceCount << endl;
-
-	//This function calculates the size of the array
-	int theArraySize = gs.Size();
-	cout << "The array size is = " << theArraySize << endl << endl;
-
-
-	
-	
-	game highestPrice = gs.MostExpensive();
-	cout << "The highest priced game is: " << highestPrice << endl;
-
-	//This function initializes all games in the array to these default values 
-	
-	//gs.Initialize(); //Works, but then titles cant be searched with the FindByTitle function since everything is initialized to a single value
-	game testing = gs.Get(0);
-	cout << testing << endl;
-
-	//Returns the authors name
-	cout << "The authors name is: " << gs.GetAuthor() << endl;
-
-	bool findTitle = gs.FindByTitle("hi",temp);
-	cout << "If the title is in the array, this outputs a 1, or else it outputs 0: " << findTitle << endl << endl;
-
-	//Assigns g3 to g4;
-	g4 = g3;
-	cout << "g4 is assigned the values from g3: " << endl << g4 << endl << endl;
-
-	//Uses a copy of g3 to create a new instance called g6, and copies the member variables
-	game g6(g3);
-	cout << "After copying g3 into g6, g6 outputs the same information as g3: " << endl << g6 << endl;
-
+	//cin >> g4;  this is how to use operator>>overload with input:
+	//cout << g4;
 	
 }

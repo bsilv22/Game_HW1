@@ -29,36 +29,68 @@
 #include <ostream>
 using namespace std;
 
-//This is the default constructor definition
+//This is the default constructor definition. Updated for the use of pointers and memory allocation
 game::game() 
 {
-	title = "Game Title"; 
-	esrb = "Everyone"; 
-	price = 1; 
+	title = new string;
+	*title = "Game Title"; 
+	
+	esrb = new string;
+	*esrb = "Everyone"; 
+	
+	price = new double;
+	*price = 1; 
 }
 
-//parameterized constructor
+//parameterized constructor, updated for the use of pointers and memory allocation
 game::game(string theTitle, string theEsrb, double thePrice)
 {
-	title = theTitle;
-	esrb = theEsrb;
-	price = thePrice;
+	title = new string;
+	*title = theTitle;
+
+	esrb = new string;
+	*esrb = theEsrb;
+
+	price = new double;
+	*price = thePrice;
 } 
+
+//Destructor definition
+game::~game()
+{
+	delete title;
+	title = nullptr;
+
+	delete esrb;
+	esrb = nullptr;
+
+	delete price;
+	price = nullptr;
+
+	cout << "Destructor called" << endl;
+}
 
 //copy constructor
 game::game(const game& rhs) 
 {
-	title = rhs.title;
-	esrb = rhs.esrb;
-	price = rhs.price;
+	
+	title = new string;
+	*title = *rhs.title;
+	
+	esrb = new string;
+	*esrb = *rhs.esrb;
+	
+	price = new double;
+	*price = *rhs.price;
+
 }
 
 //assignment operator definition
 const game& game::operator=(const game& rhs) 
 {
-	title = rhs.title;
-	esrb = rhs.esrb;
-	price = rhs.price;
+	*title = *rhs.title;
+	*esrb = *rhs.esrb;
+	*price = *rhs.price;
 	return *this;
 
 }
@@ -66,9 +98,20 @@ const game& game::operator=(const game& rhs)
 //ostream non-member overload to print out all member variables
 ostream& operator<<(ostream& os, game& rhs)
 {
-	os << rhs.title << endl;
-	os << rhs.esrb << endl;
-	os << rhs.price << endl;
+	os << *rhs.title << endl;
+	os << *rhs.esrb << endl;
+	os << *rhs.price << endl;
+
+	return os;
+
+}
+
+//istream non-member overload to read inputs of values from member variables
+istream& operator>>(istream& os, game& rhs)
+{
+	os >> *rhs.title;
+	os >> *rhs.esrb;
+	os >> *rhs.price;
 
 	return os;
 
@@ -76,16 +119,16 @@ ostream& operator<<(ostream& os, game& rhs)
 
 //getters defined
 //gets title
-string game::getTitle() { return title; }
+string game::getTitle() { return *title; }
 //gets esrb
-string game::getEsrb() { return esrb; }
+string game::getEsrb() { return *esrb; }
 //gets price
-double game::getPrice() { return price; }
+double game::getPrice() { return *price; }
 
 //setters defined
 //sets title
-void game::setTitle(string theTitle) { title = theTitle; }
+void game::setTitle(string theTitle) { *title = theTitle; }
 //sets esrb
-void game::setEsrb(string theEsrb) { esrb = theEsrb; }
+void game::setEsrb(string theEsrb) { *esrb = theEsrb; }
 //sets price
-void game::setPrice(double thePrice) { price = thePrice; }
+void game::setPrice(double thePrice) { *price = thePrice; }

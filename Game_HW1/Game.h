@@ -31,9 +31,9 @@ class game
 	//Attributes
 private:
 
-	string title;
-	string esrb;
-	double price;
+	string *title;
+	string *esrb;
+	double *price;
 
 public:
 	//Default Constructor
@@ -48,8 +48,14 @@ public:
 	//Assignment operator overload
 	const game& operator=(const game& rhs);
 
-	//non-member operator<<overload
+	//non-member operator<<overload for output
 	friend ostream& operator<<(ostream& os, game& rhs);
+
+	//Destructor
+	~game();
+
+	//non-member operator>>overload for input
+	friend istream& operator>>(istream& os, game& rhs);
 
 
 
