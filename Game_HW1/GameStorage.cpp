@@ -27,22 +27,57 @@
 #include <iostream>
 using namespace std;
 
+
+//is this a deep copy??????????????
+gameStorage::gameStorage(const gameStorage& rhs) //dont forget destructors--- 
+{
+	for (size_t i = 0; i < arrSize; i++)
+	{
+		gameData[i] = rhs.gameData[i];
+	}
+
+}
+
+
+//****************************************************
+// Function: gameStorage
+//
+// Purpose: Create an array of games dynamically
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 9/26/2021
+// Description: Creates a dynamic array of game with the given size
+//
+//**************************************************** 
+gameStorage::gameStorage(int theArrSize)
+{
+	
+	gameData = new game[theArrSize];
+	arrSize = theArrSize;
+
+	
+	
+}
+
 //****************************************************
 // Function: gameStorage
 //
 // Purpose: Set the default to all instances
 //
-// Update Information
-// ------------------
+// Update Information:
+// Changed the size of loop to the size member variable
 //
 // Name: Brett Silver
-// Date: 9/15/2021
+// Date: 9/26/2021
 // Description: Loop to set all array instances to default
 //
 //**************************************************** 
 gameStorage::gameStorage()
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < arrSize; i++)                        
 	{
 		gameData[i] = game("Emtpy", "E", 0.00);
 	}
@@ -56,17 +91,17 @@ gameStorage::gameStorage()
 // Purpose: Set any instance in the Array to a game created before hand
 //
 // Update Information
-// ------------------
+// Changed the maximum index position to the array size variable
 //
 // Name: Brett Silver
-// Date: 9/15/2021
+// Date: 9/26/2021
 // Description: Sets everything to the desired game in the array. Also limits to only the size of the array because of the if statement
 //
 //**************************************************** 
 
 void gameStorage::Set(int index, game g)
 {
-	if (index <= 2 && index >= 0) {
+	if (index <= arrSize && index >= 0) {
 		gameData[index] = g;
 	}
 
@@ -102,10 +137,10 @@ game gameStorage::Get(int index)
 // Purpose: Returns the game with the highest price
 //
 // Update Information
-// ------------------
+// Changed the for loop to the array size variable
 //
 // Name: Brett Silver
-// Date: 9/15/2021
+// Date: 9/26/2021
 // Description: Loops through the array to find the game with the highest price and returns that game
 //
 //**************************************************** 
@@ -114,7 +149,7 @@ game gameStorage::MostExpensive()
 {
 	game maxGame = gameData[0];
 	
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < arrSize; i++)
 	{
 		
 		if (gameData[i].getPrice() > maxGame.getPrice())
@@ -132,16 +167,16 @@ game gameStorage::MostExpensive()
 // Purpose: Returns the total price of all the games
 //
 // Update Information
-// ------------------
+// Changed the for loop to the arrSize variable
 //
 // Name: Brett Silver
-// Date: 9/15/2021
+// Date: 9/26/2021
 // Description: Uses a total varaible to build up each price from each game and returns a final value
 //
 //**************************************************** 
 double gameStorage::PriceTotal()
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < arrSize; i++)
 	{
 		total += gameData[i].getPrice();
 	}
@@ -155,16 +190,16 @@ double gameStorage::PriceTotal()
 // Purpose: Counts how many games have a price between the given values
 //
 // Update Information
-// ------------------
+// Changed the for loop to go up to the arrSize variable
 //
 // Name: Brett Silver
-// Date: 9/15/2021
+// Date: 9/26/2021
 // Description: Loops through the array looking for values between lowerbound and upperbound
 //
 //**************************************************** 
 int gameStorage::GamePriceCount(double lowerBound, double upperBound)
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < arrSize; i++)
 	{
 		if (gameData[i].getPrice() >= lowerBound && gameData[i].getPrice() <= upperBound)
 		{
@@ -182,17 +217,17 @@ int gameStorage::GamePriceCount(double lowerBound, double upperBound)
 // Purpose: Returns the size of the array
 //
 // Update Information
-// ------------------
+// Canged the variable name because it was the same as the arrSize variable which sets the array size
 //
 // Name: Brett Silver
-// Date: 9/15/2021
+// Date: 9/26/2021
 // Description: Describes how many instances there are
 //
 //**************************************************** 
 int gameStorage::Size()
 {
-	int arrSize = sizeof(gameData) / sizeof(gameData[0]);
-	return arrSize;
+	int theSize = sizeof(gameData) / sizeof(gameData[0]);
+	return theSize;
 }
 
 //****************************************************
@@ -201,16 +236,16 @@ int gameStorage::Size()
 // Purpose: Set the default to all instances
 //
 // Update Information
-// ------------------
+// Changed the for loop to go up to the arrSize variable
 //
 // Name: Brett Silver
-// Date: 9/15/2021
+// Date: 9/26/2021
 // Description: Once called, all array instances are set to the given game
 //
 //**************************************************** 
 void gameStorage::Initialize()
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < arrSize; i++)
 	{
 		gameData[i] = game("Inititalize Value", "Rating", 0);
 	}
@@ -244,10 +279,10 @@ string gameStorage::GetAuthor()
 // Purpose: Checks if the given title exists in the array. Then assigns that title to game& g
 //
 // Update Information
-// ------------------
+// Changed the for loop to loop up until the arrSize variable
 //
 // Name: Brett Silver
-// Date: 9/15/2021
+// Date: 9/26/2021
 // Description: Loops through the array to check if the title exists, and returns true if it does, or false if it doesn't
 //
 //**************************************************** 
@@ -256,7 +291,7 @@ string gameStorage::GetAuthor()
 
 bool gameStorage::FindByTitle(string name, game& g)
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < arrSize; i++)
 	{
 		if (gameData[i].getTitle() == name) {
 			g = gameData[i];

@@ -30,16 +30,21 @@ using namespace std;
 class gameStorage
 {
 private:
-	
-	game *gameData;
-	gameData = new game[3];
+	int arrSize = 3;
+	game *gameData = new game[arrSize];
+
 	
 	
 public:
 	
+	//Constructor to dynamically allocate an array of the given size
+	gameStorage(int theArrSize);
 	
 	//default constructor
 	gameStorage();
+
+	//gameStorage copy constructor
+	gameStorage(const gameStorage& rhs);
 	
 	//Various variables for some of the functions
 	game temp;

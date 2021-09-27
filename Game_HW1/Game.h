@@ -37,8 +37,8 @@ private:
 
 public:
 	//Default Constructor
-
 	game();
+
 	//Parameterized Constructor 
 	game(string theTitle, string theEsrb, double thePrice);
 

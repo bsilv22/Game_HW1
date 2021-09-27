@@ -42,34 +42,28 @@ int main()
 	game g4;
 	
 	
-	//creating the array
-	gameStorage gs;
-	//gs.gameData[0] = g;
-	//gs.
-	//gameData[0];
+	//creating the array. Only works if there are not too many gs.Set. Then nothing prints out.
+	gameStorage gs(3);
 	
-	//Sets each element in the array from the information above
+
 	gs.Set(0, g);
 	gs.Set(1, g2);
 	gs.Set(2, g3);
 	
 	
 
-	g4 = gs.Get(0);
-	cout << "G4 is: " << g4 << endl;
+	game test = gs.Get(0);
+	cout << test << endl;
 
-	game g5(g4);
 
-	cout << "g5 copied from g4: " << g5 << endl;
+	gameStorage gs1(gs);
 
-	gs.Set(0, g2);
-	g4 = gs.Get(0);
-
-	cout << "Now g4 is different then g5: " << g4 << endl;
-
-	cout << "Now g5 is different then g4: " << g5;
+	gs1.Set(0, g2);
+	gs.Set(0, g3);
 	
-	//cin >> g4;  this is how to use operator>>overload with input:
-	//cout << g4;
+
+	game testgs1 = gs1.Get(0);
+	cout << testgs1;
+
 	
 }

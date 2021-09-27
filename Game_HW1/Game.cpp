@@ -67,7 +67,8 @@ game::~game()
 	delete price;
 	price = nullptr;
 
-	cout << "Destructor called" << endl;
+	//No need until before handing in to check 
+	//cout << "Destructor called" << endl;
 }
 
 //copy constructor
