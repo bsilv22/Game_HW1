@@ -27,8 +27,19 @@
 #include <iostream>
 using namespace std;
 
-
-//is this a deep copy??????????????
+//****************************************************
+// Function: gameStorage copy constructor
+//
+// Purpose: Creates a new array based on the original array
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/1/2021
+// Description: Copies the array to a new array
+//
+//**************************************************** 
 gameStorage::gameStorage(const gameStorage& rhs) //dont forget destructors--- 
 {
 	for (size_t i = 0; i < arrSize; i++)
@@ -37,10 +48,32 @@ gameStorage::gameStorage(const gameStorage& rhs) //dont forget destructors---
 	}
 
 }
+//****************************************************
+// Function: gameStorage destructor
+//
+// Purpose: delete all allocated memory for the gameStorage class
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/2/2021
+// Description: Deletes all memory for gameStorage
+//
+//**************************************************** 
 
+gameStorage::~gameStorage()
+{
+
+	
+		delete[] gameData;
+		gameData = nullptr;
+		cout << "gameStorage constructor called" << endl;
+
+}
 
 //****************************************************
-// Function: gameStorage
+// Function: gameStorage constructor for creating the size
 //
 // Purpose: Create an array of games dynamically
 //
@@ -63,7 +96,37 @@ gameStorage::gameStorage(int theArrSize)
 }
 
 //****************************************************
-// Function: gameStorage
+// Function: member overload operator to copy one array to another
+//
+// Purpose: Copy one array to another
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 9/26/2021
+// Description: Used to overwrite one instance of gameStorage
+//
+//**************************************************** 
+
+const gameStorage& gameStorage::operator=(const gameStorage& rhs) //not copying over the size, but works otherwise
+{
+
+
+	delete[] gameData;
+	game *gameData = new game[arrSize];
+	for (int i = 0; i < arrSize; i++)
+	{
+		gameData[i] = rhs.gameData[i];
+	}
+
+	return *this;
+}
+
+
+
+//****************************************************
+// Function: gameStorage function used to assign default values to the gameStorage instances
 //
 // Purpose: Set the default to all instances
 //
@@ -75,6 +138,8 @@ gameStorage::gameStorage(int theArrSize)
 // Description: Loop to set all array instances to default
 //
 //**************************************************** 
+
+
 gameStorage::gameStorage()
 {
 	for (int i = 0; i < arrSize; i++)                        

@@ -45,6 +45,12 @@ public:
 
 	//gameStorage copy constructor
 	gameStorage(const gameStorage& rhs);
+
+	//gameStorage Destructor
+	~gameStorage();
+
+	//assignment operator for gameStorage
+	const gameStorage& operator=(const gameStorage& rhs);
 	
 	//Various variables for some of the functions
 	game temp;
