@@ -57,7 +57,7 @@ public:
 	//non-member operator>>overload for input
 	friend istream& operator>>(istream& os, game& rhs);
 
-
+	
 
 	//Function prototypes for member variables - getters
 	string getTitle();

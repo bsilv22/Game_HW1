@@ -27,6 +27,9 @@
 #include <iostream>
 using namespace std;
 
+
+
+
 //****************************************************
 // Function: gameStorage copy constructor
 //
@@ -48,6 +51,42 @@ gameStorage::gameStorage(const gameStorage& rhs) //dont forget destructors---
 	}
 
 }
+
+//****************************************************
+// Function: Changes the size of the array of games
+//
+// Purpose: To add or take away games from the array
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/3/2021
+// Description: Copies the array to a new array while adding or subtracting instances in the array
+//
+//**************************************************** 
+void gameStorage::Resize(int newSize)
+{
+	game* arrChange = new game[newSize];
+
+	for (int i = 0; i < newSize; i++)
+	{
+		arrChange[i] = gameData[i];
+	}
+	delete[] gameData;
+	gameData = new game[newSize];
+	gameData = arrChange;
+}
+
+
+/**
+gameStorage *DeepCopy()
+{
+	gameStorage *copyStorage = new gameStorage[arrSize];
+	
+}
+**/
+
 //****************************************************
 // Function: gameStorage destructor
 //
@@ -68,7 +107,7 @@ gameStorage::~gameStorage()
 	
 		delete[] gameData;
 		gameData = nullptr;
-		cout << "gameStorage constructor called" << endl;
+		cout << "gameStorage deconstructor called" << endl;
 
 }
 
@@ -123,7 +162,31 @@ const gameStorage& gameStorage::operator=(const gameStorage& rhs) //not copying 
 	return *this;
 }
 
+//****************************************************
+// Function:non member overload operator to output an array of instances
+//
+// Purpose: Allows the output of each instance with a single cout statement
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/3/2021
+// Description: Used to output information of array
+//
+//**************************************************** 
 
+ostream& operator<<(ostream& os, gameStorage& rhs) 
+{
+	for (int i = 0; i < rhs.arrSize; i++)
+	{
+		os << rhs.gameData[i] << endl;
+	}
+
+
+	return os;
+
+}
 
 //****************************************************
 // Function: gameStorage function used to assign default values to the gameStorage instances

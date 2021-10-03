@@ -51,6 +51,17 @@ public:
 
 	//assignment operator for gameStorage
 	const gameStorage& operator=(const gameStorage& rhs);
+
+	//ostream non-member overload to print out all member variables
+	friend ostream& operator<<(ostream& os, gameStorage& rhs);
+
+	//Function used to make a deep copy of current instance
+	//gameStorage *DeepCopy();
+
+	//Changes the size of the array while keeping its contents
+	void Resize(int newSize);
+
+	
 	
 	//Various variables for some of the functions
 	game temp;
