@@ -43,16 +43,20 @@ int main()
 	
 	
 	//creating the array. Only works if there are not too many gs.Set. Then nothing prints out.
-	gameStorage gs(3);
+	gameStorage gs(4);
 	
 	
 
 	gs.Set(0, g);
 	gs.Set(1, g2);
 	gs.Set(2, g3);
+	gs.Set(3, g2);
+
 	
 	
-	gs.Resize(1);
+	//gs.Resize(4); //only works if 3 or less. If there are to many instances and not enough sets, nothing outputs
+
+	
 	
 	cout << gs;
 	//gameStorage gs1(gs);

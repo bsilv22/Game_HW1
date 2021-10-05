@@ -56,7 +56,7 @@ public:
 	friend ostream& operator<<(ostream& os, gameStorage& rhs);
 
 	//Function used to make a deep copy of current instance
-	//gameStorage *DeepCopy();
+	gameStorage *DeepCopy();
 
 	//Changes the size of the array while keeping its contents
 	void Resize(int newSize);

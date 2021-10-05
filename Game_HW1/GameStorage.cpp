@@ -67,25 +67,31 @@ gameStorage::gameStorage(const gameStorage& rhs) //dont forget destructors---
 //**************************************************** 
 void gameStorage::Resize(int newSize)
 {
+	int end;
+	if (newSize < arrSize) { end = newSize; }
+	else { end = arrSize; }
 	game* arrChange = new game[newSize];
 
-	for (int i = 0; i < newSize; i++)
+	for (int i = 0; i < end; i++)
 	{
 		arrChange[i] = gameData[i];
 	}
 	delete[] gameData;
-	gameData = new game[newSize];
+	
 	gameData = arrChange;
 }
 
 
-/**
-gameStorage *DeepCopy()
+
+gameStorage* gameStorage::DeepCopy()
 {
 	gameStorage *copyStorage = new gameStorage[arrSize];
-	
+	for (int i = 0; i < arrSize; i++)
+	{
+
+	}
 }
-**/
+
 
 //****************************************************
 // Function: gameStorage destructor
