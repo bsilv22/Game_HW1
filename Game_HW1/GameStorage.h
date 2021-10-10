@@ -30,9 +30,10 @@ using namespace std;
 class gameStorage
 {
 private:
+	//updated to use dynamic memory allocation for the array
 	int arrSize = 3;
 	game *gameData = new game[arrSize];
-
+	
 	
 	
 public:
@@ -56,7 +57,7 @@ public:
 	friend ostream& operator<<(ostream& os, gameStorage& rhs);
 
 	//Function used to make a deep copy of current instance
-	gameStorage *DeepCopy();
+	//gameStorage *DeepCopy();
 
 	//Changes the size of the array while keeping its contents
 	void Resize(int newSize);

@@ -67,11 +67,11 @@ game::~game()
 	delete price;
 	price = nullptr;
 
-	//No need until before handing in to check 
+	
 	//cout << "Destructor called" << endl;
 }
 
-//copy constructor
+//copy constructor with pointers
 game::game(const game& rhs) 
 {
 	
@@ -86,7 +86,7 @@ game::game(const game& rhs)
 
 }
 
-//assignment operator definition
+//assignment operator definition with the use of pointers
 const game& game::operator=(const game& rhs) 
 {
 	*title = *rhs.title;
@@ -96,7 +96,7 @@ const game& game::operator=(const game& rhs)
 
 }
 
-//ostream non-member overload to print out all member variables
+//ostream non-member overload to print out all member variables with pointers
 ostream& operator<<(ostream& os, game& rhs)
 {
 	os << *rhs.title << endl;
@@ -107,7 +107,7 @@ ostream& operator<<(ostream& os, game& rhs)
 
 }
 
-//istream non-member overload to read inputs of values from member variables
+//istream non-member overload to read inputs of values from member variables using pointers
 istream& operator>>(istream& os, game& rhs)
 {
 	os >> *rhs.title;
@@ -118,7 +118,7 @@ istream& operator>>(istream& os, game& rhs)
 
 }
 
-//getters defined
+//getters defined with pointers
 //gets title
 string game::getTitle() { return *title; }
 //gets esrb
@@ -126,7 +126,7 @@ string game::getEsrb() { return *esrb; }
 //gets price
 double game::getPrice() { return *price; }
 
-//setters defined
+//setters defined with pointers
 //sets title
 void game::setTitle(string theTitle) { *title = theTitle; }
 //sets esrb

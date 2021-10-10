@@ -8,15 +8,15 @@
 // Compiler: Visual C++ 2019
 //
 // Update Information
-// ------------------
+// Changed functions to work with dynamic memory. Added some new functions as well, such as dynamic array, size member variable, deep copy constructors, destructors, overload=, non-member overload, resize function, and a deepCopy function.
 //
 // Name: Brett Silver
 // Date: 9/11/2021
-// Description: Stores information about the games and function definitions
+// Description: Version 1 = Stores information about the games and function definitions
 //
 // Name: Brett Silver
-// Date: 9/11/2021
-//@Brett Silver
+// Date: 10/5/2021
+//Description: Version 2 = Changed many functions to deal with dynamic memory and added a few new functions such as resize, and DeepCopy. Also added destructors.
 //
 //**************************************************** 
 
@@ -36,14 +36,14 @@ using namespace std;
 // Purpose: Creates a new array based on the original array
 //
 // Update Information:
-// ----------------
+// Creates a deep copy constructor
 //
 // Name: Brett Silver
 // Date: 10/1/2021
 // Description: Copies the array to a new array
 //
 //**************************************************** 
-gameStorage::gameStorage(const gameStorage& rhs) //dont forget destructors--- 
+gameStorage::gameStorage(const gameStorage& rhs) 
 {
 	for (size_t i = 0; i < arrSize; i++)
 	{
@@ -68,7 +68,7 @@ gameStorage::gameStorage(const gameStorage& rhs) //dont forget destructors---
 void gameStorage::Resize(int newSize)
 {
 	int end;
-	if (newSize < arrSize) { end = newSize; }
+	if (newSize < arrSize ) { end = newSize; }
 	else { end = arrSize; }
 	game* arrChange = new game[newSize];
 
@@ -81,17 +81,23 @@ void gameStorage::Resize(int newSize)
 	gameData = arrChange;
 }
 
-
+/**
 
 gameStorage* gameStorage::DeepCopy()
 {
-	gameStorage *copyStorage = new gameStorage[arrSize];
+	gameStorage* copyStorage = new gameStorage;
+	
+
+
 	for (int i = 0; i < arrSize; i++)
 	{
-
+		copyStorage->gameData[i] = gameData[i];
 	}
+	return copyStorage;
+	
+	
 }
-
+**/
 
 //****************************************************
 // Function: gameStorage destructor
@@ -103,7 +109,7 @@ gameStorage* gameStorage::DeepCopy()
 //
 // Name: Brett Silver
 // Date: 10/2/2021
-// Description: Deletes all memory for gameStorage
+// Description: Deletes all dynamic memory for gameStorage
 //
 //**************************************************** 
 
@@ -113,7 +119,7 @@ gameStorage::~gameStorage()
 	
 		delete[] gameData;
 		gameData = nullptr;
-		cout << "gameStorage deconstructor called" << endl;
+		//cout << "gameStorage deconstructor called" << endl;
 
 }
 
@@ -123,10 +129,10 @@ gameStorage::~gameStorage()
 // Purpose: Create an array of games dynamically
 //
 // Update Information:
-// ----------------
+// Changes dynamic size of array
 //
 // Name: Brett Silver
-// Date: 9/26/2021
+// Date: 10/5/2021
 // Description: Creates a dynamic array of game with the given size
 //
 //**************************************************** 
@@ -146,10 +152,10 @@ gameStorage::gameStorage(int theArrSize)
 // Purpose: Copy one array to another
 //
 // Update Information:
-// ----------------
+// Performs a deep copy of gameStorage by copying over values
 //
 // Name: Brett Silver
-// Date: 9/26/2021
+// Date: 10/5/2021
 // Description: Used to overwrite one instance of gameStorage
 //
 //**************************************************** 
@@ -174,7 +180,7 @@ const gameStorage& gameStorage::operator=(const gameStorage& rhs) //not copying 
 // Purpose: Allows the output of each instance with a single cout statement
 //
 // Update Information:
-// ----------------
+// Outputs array contents
 //
 // Name: Brett Silver
 // Date: 10/3/2021
@@ -360,7 +366,7 @@ int gameStorage::GamePriceCount(double lowerBound, double upperBound)
 //**************************************************** 
 int gameStorage::Size()
 {
-	int theSize = sizeof(gameData) / sizeof(gameData[0]);
+	int theSize = 3;
 	return theSize;
 }
 
