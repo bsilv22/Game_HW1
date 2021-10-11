@@ -178,11 +178,18 @@ int main()
 
 	//Resizing the array
 	cout << "Prints out the new size of the array: " << endl;
-	gs.Resize(2);
+	gs.Resize(4);
 	cout << gs;
+	cout << endl;
 
-
-
+	
+	cout << "This is deep copy working: " << endl;
+	gameStorage* xyz = gs.DeepCopy();
+	//gameStorage* g5 = new gameStorage();
+	//gameStorage* g5 = gs.DeepCopy();
+	//cout << "This is deep copy: " << g5;
+	//delete xyz
+	cout << *xyz;
 
 
 

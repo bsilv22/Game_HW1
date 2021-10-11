@@ -77,17 +77,17 @@ void gameStorage::Resize(int newSize)
 		arrChange[i] = gameData[i];
 	}
 	delete[] gameData;
-	
+	arrSize = newSize;
 	gameData = arrChange;
 }
 
-/**
+
 
 gameStorage* gameStorage::DeepCopy()
 {
 	gameStorage* copyStorage = new gameStorage;
 	
-
+	copyStorage->Resize(arrSize);
 
 	for (int i = 0; i < arrSize; i++)
 	{
@@ -97,7 +97,7 @@ gameStorage* gameStorage::DeepCopy()
 	
 	
 }
-**/
+
 
 //****************************************************
 // Function: gameStorage destructor
