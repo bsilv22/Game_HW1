@@ -78,11 +78,23 @@ void gameStorage::Resize(int newSize)
 	}
 	delete[] gameData;
 	arrSize = newSize;
-	gameData = arrChange;
+	gameData = arrChange; 
 }
 
 
-
+//****************************************************
+// Function: Deep Copy
+//
+// Purpose: To deep copy one instance to another
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/11/2021
+// Description: Used to copy one array to a new instance
+//
+//**************************************************** 
 gameStorage* gameStorage::DeepCopy()
 {
 	gameStorage* copyStorage = new gameStorage;

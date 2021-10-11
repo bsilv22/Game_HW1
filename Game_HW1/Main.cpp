@@ -191,7 +191,7 @@ int main()
 	//delete xyz
 	cout << *xyz;
 
-
+	delete xyz;
 
 
 
