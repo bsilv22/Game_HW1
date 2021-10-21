@@ -31,8 +31,8 @@ class gameStorage
 {
 private:
 	//updated to use dynamic memory allocation for the array
-	int arrSize = 3;
-	game *gameData = new game[arrSize];
+	int arrSize;
+	game *gameData;
 	
 	
 	

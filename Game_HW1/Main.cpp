@@ -48,6 +48,18 @@ int main()
 {
 
 
+
+	gameStorage gs(2);
+	
+	gameStorage gs1(gs);
+	
+	
+
+
+
+	/**
+	
+
 	//Game instance:
 	game g;
 	//sets title of g
@@ -193,12 +205,5 @@ int main()
 
 
 
-
-
-
-
-
-
-
-
+	**/
 }
