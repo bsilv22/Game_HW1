@@ -45,6 +45,8 @@ using namespace std;
 //**************************************************** 
 gameStorage::gameStorage(const gameStorage& rhs) 
 {
+	arrSize = rhs.arrSize;
+	gameData = new game[arrSize];
 	for (size_t i = 0; i < arrSize; i++)
 	{
 		gameData[i] = rhs.gameData[i];
@@ -153,6 +155,7 @@ gameStorage::gameStorage(int theArrSize)
 	
 	gameData = new game[theArrSize];
 	arrSize = theArrSize;
+	
 
 	
 	
@@ -177,7 +180,7 @@ const gameStorage& gameStorage::operator=(const gameStorage& rhs) //not copying 
 
 
 	delete[] gameData;
-	game *gameData = new game[arrSize];
+	gameData = new game[arrSize];
 	for (int i = 0; i < arrSize; i++)
 	{
 		gameData[i] = rhs.gameData[i];
@@ -229,10 +232,9 @@ ostream& operator<<(ostream& os, gameStorage& rhs)
 
 gameStorage::gameStorage()
 {
-	for (int i = 0; i < arrSize; i++)                        
-	{
-		gameData[i] = game("Emtpy", "E", 0.00);
-	}
+	gameData = nullptr;
+	arrSize = 0;
+
 
 }
 
