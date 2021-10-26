@@ -24,6 +24,7 @@
 
 #include "Game.h"
 #include "GameStorage.h"
+#include "GameList.h"
 #include <iostream>
 #include <ostream>
 #include <string>
@@ -47,17 +48,23 @@ using namespace std;
 int main()
 {
 
+	game g("Yes", "NO", 20);
+	game g2("yee", "sada", 5);
 
+	GameList gl;
+	gl.Add(g);
+	gl.Add(g2);
+	gl.print();
 
+	
+
+	/**
+	 
 	gameStorage gs(2);
+	cout << gs;
 	
 	gameStorage gs1(gs);
 	
-	
-
-
-
-	/**
 	
 
 	//Game instance:

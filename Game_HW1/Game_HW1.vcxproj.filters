@@ -21,6 +21,9 @@
     <ClInclude Include="GameStorage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -30,6 +33,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameStorage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
