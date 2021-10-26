@@ -48,15 +48,16 @@ using namespace std;
 int main()
 {
 
-	game g("Yes", "NO", 20);
+	game g1("Yes", "NO", 20);
 	game g2("yee", "sada", 5);
 
 	GameList gl;
-	gl.Add(g);
+	gl.Add(g1);
 	gl.Add(g2);
-	gl.print();
-
 	
+
+	GameList g3(gl);
+	g3.print();
 
 	/**
 	 

@@ -12,10 +12,6 @@ GameList::GameList()
 	listData = nullptr;
 }
 
-GameList::GameList(const GameList& otherList)
-{
-	
-}
 
 void GameList::print() const
 {
@@ -46,6 +42,9 @@ GameList::GameList(const GameList& otherList)
 	int size = otherList.length;
 	NodeType* newNode = new NodeType[size];
 
-	newNode->next = otherList.listData;
+	while (listData->next != nullptr) {
+		listData->data = otherList.listData->data;
+		listData = listData->next;
+	}
 
 }
