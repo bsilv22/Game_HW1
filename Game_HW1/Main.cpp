@@ -28,6 +28,7 @@
 #include <iostream>
 #include <ostream>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -57,14 +58,16 @@ int main()
 	gl.Add(g2);
 	
 
-	//neither prints out. Want to test code
-	
-	
-	GameList gl2;
-	gl2.Add(g3);
+	//Outputs list to a file
+	string filename("GameDattta.txt");
+	ofstream outfile(filename);
+	outfile << gl;
 
-	gl2 = gl;
-	gl2.print();
+	GameList gl2;
+	string tfilename("GameDattta.txt");
+	ifstream infile(tfilename);
+	infile >> gl2;
+
 
 	/**
 	 

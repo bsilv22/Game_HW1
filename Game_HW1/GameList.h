@@ -31,4 +31,10 @@ public:
 	void Add(const game e);
 	void Clear();
 	GameList& operator=(GameList& rhs);
+	
+	friend ostream& operator<<(ostream& os, GameList& rhs);
+	//friend istream& operator>>(istream& is, GameList& rhs);
+
+	void Delete(std::string title);
+
 };

@@ -86,3 +86,42 @@ GameList& GameList::operator=(GameList& rhs)
 	}
 	return *this;
 }
+
+
+ostream& operator<<(ostream& os, GameList& rhs)
+{
+	NodeType* location = rhs.listData;
+	while (location != nullptr)
+	{
+		os << location->data << endl;
+		location = location->next;
+	}
+	return os;
+}
+
+
+void GameList::Delete(std::string title)
+{
+	NodeType* temp;
+	NodeType* location = listData;
+	while (temp != nullptr)
+	{
+		if(location->data.getTitle
+	}
+
+}
+
+
+/**
+istream& operator>>(istream& is, GameList& rhs)
+{
+	NodeType* location = rhs.listData;
+	while (location != nullptr)
+	{
+		is >> location->data;
+		location = location->next;
+	}
+	return is;
+}
+**/
+
