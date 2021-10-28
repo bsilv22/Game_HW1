@@ -29,5 +29,6 @@ public:
 	
 	void print() const;
 	void Add(const game e);
-
+	void Clear();
+	GameList& operator=(GameList& rhs);
 };

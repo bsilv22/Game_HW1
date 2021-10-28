@@ -29,7 +29,19 @@
 #include <ostream>
 using namespace std;
 
-//This is the default constructor definition. Updated for the use of pointers and memory allocation
+//****************************************************
+// Function: Default copy constructor
+//
+// Purpose: To assign default values to each instance
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/28/2021
+// Description: Assigns values to each instance if no parameters are being used
+//
+//**************************************************** 
 game::game() 
 {
 	title = new string;
@@ -42,7 +54,19 @@ game::game()
 	*price = 1; 
 }
 
-//parameterized constructor, updated for the use of pointers and memory allocation
+//****************************************************
+// Function: Paramaterized constructor
+//
+// Purpose: To add values into an a instance through parameters
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/28/2021
+// Description: This function copies values from the parameters into the instance.
+//
+//**************************************************** 
 game::game(string theTitle, string theEsrb, double thePrice)
 {
 	title = new string;

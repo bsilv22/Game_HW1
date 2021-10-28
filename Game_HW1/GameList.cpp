@@ -37,14 +37,52 @@ void GameList::Add(const game e)
 	length++;
 }
 
+
 GameList::GameList(const GameList& otherList)
 {
-	int size = otherList.length;
-	NodeType* newNode = new NodeType[size];
+	length = 0;
+	listData = nullptr;
 
-	while (listData->next != nullptr) {
-		listData->data = otherList.listData->data;
+	
+	NodeType* location = otherList.listData;
+	
+
+	while (location != nullptr) {
+
+		Add(location->data);
+		location = location->next;
+
+
+	}
+	
+}
+
+void GameList::Clear()
+{
+	NodeType* temp;
+	temp = listData;
+	while (listData != nullptr)
+	{
 		listData = listData->next;
+		delete temp;
+		temp = listData;
 	}
 
+}
+
+GameList& GameList::operator=(GameList& rhs)
+{
+	if (!(length == 0)) { Clear(); }
+
+	NodeType* location = rhs.listData;
+	
+
+	while (location != nullptr) {
+
+		Add(location->data);
+		location = location->next;
+
+
+	}
+	return *this;
 }
