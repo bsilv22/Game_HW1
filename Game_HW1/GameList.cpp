@@ -99,7 +99,7 @@ ostream& operator<<(ostream& os, GameList& rhs)
 	return os;
 }
 
-
+/**
 void GameList::Delete(std::string title)
 {
 	NodeType* temp;
@@ -110,7 +110,7 @@ void GameList::Delete(std::string title)
 	}
 
 }
-
+*/
 
 /**
 istream& operator>>(istream& is, GameList& rhs)

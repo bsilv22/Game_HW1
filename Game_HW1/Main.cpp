@@ -66,7 +66,7 @@ int main()
 	GameList gl2;
 	string tfilename("GameDattta.txt");
 	ifstream infile(tfilename);
-	infile >> gl2;
+	//infile >> gl2;
 
 
 	/**
