@@ -125,3 +125,44 @@ istream& operator>>(istream& is, GameList& rhs)
 }
 **/
 
+void GameList::Delete(std::string title)
+{
+	NodeType* tempLocation, * location = listData;
+	if (listData == nullptr)
+		return;
+
+	if (title == listData->data.getTitle())
+	{
+		tempLocation = location;
+		listData = listData->next;
+	}
+	else {
+		while (location->next != nullptr && location->next->data.getTitle() != title)
+		{
+			location = location->next;
+		}
+		tempLocation = location->next;
+		location->next = (location->next)->next;
+	}
+	delete tempLocation;
+	length--;
+}
+
+int GameList::Length() const
+{
+	
+	return length;
+}
+
+bool GameList::FindGame(std::string title, game& result) const
+{
+	NodeType* temp = listData;
+	
+	while (temp != nullptr) {
+
+		if (title == temp->data.getTitle()) { result = temp->data; return true; }
+		else(temp = temp->next);
+	}
+		
+	return false;
+}

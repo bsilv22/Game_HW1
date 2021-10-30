@@ -35,6 +35,11 @@ public:
 	friend ostream& operator<<(ostream& os, GameList& rhs);
 	//friend istream& operator>>(istream& is, GameList& rhs);
 
-	//void Delete(std::string title);
+	void Delete(std::string title);
+	
+	int Length()const;
+
+	bool FindGame(std::string title, game& result) const;
+
 
 };

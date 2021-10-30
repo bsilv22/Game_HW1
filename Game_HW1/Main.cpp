@@ -56,18 +56,31 @@ int main()
 	GameList gl;
 	gl.Add(g1);
 	gl.Add(g2);
-	
+	gl.Add(g3);
+	//cout << gl << endl << endl;
 
+	//gl.Delete("Yes");
+
+	//cout << gl << endl;
+
+	//cout << "Length is: " << gl.Length();
+	
+	bool test = gl.FindGame("Yes", g3);
+	cout << test;
+	cout << g3;
+	
+	/*
 	//Outputs list to a file
 	string filename("GameDattta.txt");
 	ofstream outfile(filename);
 	outfile << gl;
 
+	
 	GameList gl2;
 	string tfilename("GameDattta.txt");
 	ifstream infile(tfilename);
 	//infile >> gl2;
-
+	*/
 
 	/**
 	 
