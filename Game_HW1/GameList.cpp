@@ -99,18 +99,7 @@ ostream& operator<<(ostream& os, GameList& rhs)
 	return os;
 }
 
-/**
-void GameList::Delete(std::string title)
-{
-	NodeType* temp;
-	NodeType* location = listData;
-	while (temp != nullptr)
-	{
-		if(location->data.getTitle
-	}
 
-}
-*/
 
 /**
 istream& operator>>(istream& is, GameList& rhs)
@@ -165,4 +154,30 @@ bool GameList::FindGame(std::string title, game& result) const
 	}
 		
 	return false;
+}
+
+
+void GameList::Add(const GameList& otherList)
+{
+
+	NodeType* location = otherList.listData;
+
+	while (location != nullptr)
+	{
+		Add(location->data);
+		location = location->next;
+	}
+	
+}
+
+GameList::~GameList()
+{
+	NodeType* current = listData;
+	while (current != 0) {
+		NodeType* next = current->next;
+		delete current;
+		current = next;
+	}
+	listData = 0;
+	cout << "Destructor called:" << endl;
 }

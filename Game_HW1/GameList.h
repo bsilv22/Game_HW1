@@ -26,7 +26,8 @@ private:
 public:
 	GameList();
 	GameList(const GameList& otherList);
-	
+	~GameList();
+
 	void print() const;
 	void Add(const game e);
 	void Clear();
@@ -41,5 +42,8 @@ public:
 
 	bool FindGame(std::string title, game& result) const;
 
+	void Add(const GameList& otherList);
+
+	
 
 };

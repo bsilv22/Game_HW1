@@ -59,15 +59,24 @@ int main()
 	gl.Add(g3);
 	//cout << gl << endl << endl;
 
+	game g4("Test1", "For", 34);
+	game g5("Test2", "Today", 25);
+	GameList gl2;
+	gl2.Add(g4);
+	gl2.Add(g5);
+
+	gl2.Add(gl);
+	cout << gl2;
+
 	//gl.Delete("Yes");
 
 	//cout << gl << endl;
 
 	//cout << "Length is: " << gl.Length();
 	
-	bool test = gl.FindGame("Yes", g3);
-	cout << test;
-	cout << g3;
+	//bool test = gl.FindGame("Yes", g3);
+	//cout << test;
+	//cout << g3;
 	
 	/*
 	//Outputs list to a file
