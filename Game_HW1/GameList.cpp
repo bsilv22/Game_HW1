@@ -160,12 +160,12 @@ bool GameList::FindGame(std::string title, game& result) const
 void GameList::Add(const GameList& otherList)
 {
 
-	NodeType* location = otherList.listData;
+	NodeType* location = otherList.listData;   //why use otherList?
 
 	while (location != nullptr)
 	{
-		Add(location->data);
-		location = location->next;
+		Add(location->data);                      //why aren't we using the entire node since we are just using location->data
+		location = location->next;					//Understand some things and then forget what i understood and don't understand again
 	}
 	
 }
