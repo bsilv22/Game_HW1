@@ -34,7 +34,7 @@ public:
 	GameList& operator=(GameList& rhs);
 	
 	friend ostream& operator<<(ostream& os, GameList& rhs);
-	//friend istream& operator>>(istream& is, GameList& rhs);
+	friend istream& operator>>(istream& is, GameList& rhs);
 
 	void Delete(std::string title);
 	

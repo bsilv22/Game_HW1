@@ -79,7 +79,19 @@ game::game(string theTitle, string theEsrb, double thePrice)
 	*price = thePrice;
 } 
 
-//Destructor definition
+//****************************************************
+// Function: Destructor
+//
+// Purpose: Deletes game instances after scope
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/28/2021
+// Description: This function clears out dynamic memory
+//
+//**************************************************** 
 game::~game()
 {
 	delete title;
@@ -95,7 +107,19 @@ game::~game()
 	//cout << "Destructor called" << endl;
 }
 
-//copy constructor with pointers
+//****************************************************
+// Function: Copy constructor
+//
+// Purpose: Creates a new game instance as a copy from the other instance
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/28/2021
+// Description: This function copies values from one instance into a new one
+//
+//**************************************************** 
 game::game(const game& rhs) 
 {
 	
@@ -110,7 +134,19 @@ game::game(const game& rhs)
 
 }
 
-//assignment operator definition with the use of pointers
+//****************************************************
+// Function: Operator= overload
+//
+// Purpose: To equal one instance into another using the = sign
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/28/2021
+// Description: This function overwrites another instance
+//
+//**************************************************** 
 const game& game::operator=(const game& rhs) 
 {
 	*title = *rhs.title;
@@ -120,7 +156,19 @@ const game& game::operator=(const game& rhs)
 
 }
 
-//ostream non-member overload to print out all member variables with pointers
+//****************************************************
+// Function: operator<< overload
+//
+// Purpose: To output each games data
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/28/2021
+// Description: This function uses the output stream to output each games information
+//
+//**************************************************** 
 ostream& operator<<(ostream& os, game& rhs)
 {
 	os << *rhs.title << endl;
@@ -131,7 +179,19 @@ ostream& operator<<(ostream& os, game& rhs)
 
 }
 
-//istream non-member overload to read inputs of values from member variables using pointers
+//****************************************************
+// Function: operator >> 
+//
+// Purpose: To add take in values and apply them to a game
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/28/2021
+// Description: This function stores games from input given by the user
+//
+//**************************************************** 
 istream& operator>>(istream& os, game& rhs)
 {
 	os >> *rhs.title;
@@ -143,17 +203,99 @@ istream& operator>>(istream& os, game& rhs)
 }
 
 //getters defined with pointers
-//gets title
+// 
+// 
+//****************************************************
+// Function: GetTitle
+//
+// Purpose: returns the title
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/28/2021
+// Description: returns the title
+//
+//**************************************************** 
 string game::getTitle() { return *title; }
-//gets esrb
+
+//****************************************************
+// Function: GetEsrb
+//
+// Purpose: returns esrb
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/28/2021
+// Description: returns esrb
+//
+//**************************************************** 
 string game::getEsrb() { return *esrb; }
-//gets price
+
+
+//****************************************************
+// Function: getPrice
+//
+// Purpose: returns price
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/28/2021
+// Description: returns price
+//**************************************************** 
 double game::getPrice() { return *price; }
 
 //setters defined with pointers
-//sets title
+
+
+//****************************************************
+// Function: SetTitle
+//
+// Purpose: sets title
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/28/2021
+// Description: sets title
+//
+//**************************************************** 
 void game::setTitle(string theTitle) { *title = theTitle; }
-//sets esrb
+
+
+//****************************************************
+// Function: setEsrb
+//
+// Purpose: sets esrb
+//
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/28/2021
+// Description: sets esrb
+//
+//**************************************************** 
 void game::setEsrb(string theEsrb) { *esrb = theEsrb; }
-//sets price
+
+
+//****************************************************
+// Function: setPrice
+// 
+// Purpose: sets price
+// 
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/28/2021
+// Description: sets price
+//
+//**************************************************** 
 void game::setPrice(double thePrice) { *price = thePrice; }
