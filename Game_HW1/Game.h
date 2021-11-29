@@ -57,6 +57,11 @@ public:
 	//non-member operator>>overload for input
 	friend istream& operator>>(istream& os, game& rhs);
 
+	//< overload for comparing titles
+	friend bool operator<(game& lhs, game& rhs);
+
+	//> overload for comparing titles
+	friend bool operator>(game& lhs, game& rhs);
 	
 
 	//Function prototypes for member variables - getters

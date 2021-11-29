@@ -64,7 +64,7 @@ void GameList::print() const
 // Name: Brett Silver
 // Date: 10/29/2021
 // Description: This function adds a game node to the top of the list
-//Big O = O(n)
+//Big O = O(1)
 //**************************************************** 
 void GameList::Add(const game e)
 {
@@ -107,7 +107,7 @@ GameList::GameList(const GameList& otherList)
 
 
 	}
-	length = otherList.Length();
+	
 }
 
 //****************************************************
@@ -258,6 +258,8 @@ void GameList::Delete(std::string title)
 		{
 			location = location->next;
 		}
+		if (location->next == nullptr) { return;
+ }
 		tempLocation = location->next;
 		location->next = (location->next)->next;
 	}
@@ -276,7 +278,7 @@ void GameList::Delete(std::string title)
 // Name: Brett Silver
 // Date: 10/26/2021
 // Description: This function displays the length of the list
-//Big O = O(n)
+//Big O = O(1)
 //**************************************************** 
 
 int GameList::Length() const
@@ -296,7 +298,7 @@ int GameList::Length() const
 // Name: Brett Silver
 // Date: 10/26/2021
 // Description: Searches for a title in the list
-//
+//Big O = O(n)
 //**************************************************** 
 
 bool GameList::FindGame(std::string title, game& result) const
@@ -351,17 +353,17 @@ void GameList::Add(const GameList& otherList)
 // Name: Brett Silver
 // Date: 10/26/2021
 // Description: This function deletes one node at a time to provide clean up after the end of the scope
-//
+//Big O = O(n)
 //**************************************************** 
 
 GameList::~GameList()
 {
 	NodeType* current = listData;
-	while (current != 0) {
+	while (current != nullptr) {
 		NodeType* next = current->next;
 		delete current;
 		current = next;
 	}
-	listData = 0;
+	listData = nullptr;
 	cout << "Destructor called:" << endl;
 }

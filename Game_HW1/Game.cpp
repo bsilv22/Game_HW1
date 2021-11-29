@@ -299,3 +299,47 @@ void game::setEsrb(string theEsrb) { *esrb = theEsrb; }
 //
 //**************************************************** 
 void game::setPrice(double thePrice) { *price = thePrice; }
+
+
+//****************************************************
+// Function: < overload for game titles
+// 
+// Purpose: compares titles
+// 
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 11/28/2021
+// Description: Used to compare titles to see if one title comes before another alphabetically
+//
+//**************************************************** 
+bool operator<(game& lhs, game& rhs)
+{
+	if (lhs.getTitle() < rhs.getTitle())
+	{
+		return true;
+	}
+};
+
+
+//****************************************************
+// Function: > overload for game titles
+// 
+// Purpose: compares titles
+// 
+// Update Information:
+// ----------------
+//
+// Name: Brett Silver
+// Date: 10/28/2021
+// Description: Used to compare titles to see if the left hand side is larger then the right hand side
+//
+//**************************************************** 
+bool operator>(game& lhs, game& rhs)
+{
+	if (lhs.getTitle() > rhs.getTitle())
+	{
+		return true;
+	}
+};
