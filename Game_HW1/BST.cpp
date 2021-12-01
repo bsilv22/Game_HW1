@@ -23,3 +23,35 @@ BST::BST()
 {
 	root = nullptr;
 }
+
+void BST::Add(game g)
+{
+	Add(g);
+}
+
+//is this right?
+void BST::Add(TreeNode*& tree, game g)
+{
+	if (tree == nullptr)
+	{// Insertion place found.
+		tree = new TreeNode;
+		tree->right = nullptr;
+		tree->left = nullptr;
+		tree->info = g;
+	}
+	else if (g.getTitle() < tree->info.getTitle())
+		Add(tree->left, g);
+	else
+		Add(tree->right, g);
+}
+
+//is this right?
+void PrintTree(TreeNode* tree, ostream& out)
+{
+	if (tree != nullptr)
+	{
+		PrintTree(tree->left, outFile);
+		out << tree->info;
+		PrintTree(tree->right, outFile);
+	}
+}

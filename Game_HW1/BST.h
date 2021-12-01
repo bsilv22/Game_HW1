@@ -7,7 +7,7 @@ using namespace std;
 
 struct TreeNode
 {
-	int info;
+	game info;
 	TreeNode* left;
 	TreeNode* right;
 
@@ -20,5 +20,10 @@ private:
 
 public:
 	BST();
+	
+	void Add(game g);
+	void Add(TreeNode*& tree, game g);
+
+	void PrintTree(TreeNode* tree, ostream& out);
 
 };

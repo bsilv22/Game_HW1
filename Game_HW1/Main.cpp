@@ -25,6 +25,7 @@
 #include "Game.h"
 #include "GameStorage.h"
 #include "GameList.h"
+#include "BST.h"
 #include <iostream>
 #include <ostream>
 #include <string>
@@ -48,13 +49,11 @@ using namespace std;
 
 int main()
 {
-	
 
 	game g1("zarry", "E", 24);
 	game g2("ybby", "T", 35);
 
 	
-	bool test = g1.getTitle() > g2.getTitle();
-	
-	cout << test;
+	BST gl;
+
 }
