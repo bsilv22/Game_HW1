@@ -26,7 +26,7 @@ BST::BST()
 
 void BST::Add(game g)
 {
-	Add(g);
+	Add(root, g);
 }
 
 //is this right?
@@ -50,8 +50,14 @@ void PrintTree(TreeNode* tree, ostream& out)
 {
 	if (tree != nullptr)
 	{
-		PrintTree(tree->left, outFile);
+		PrintTree(tree->left, out);
 		out << tree->info;
-		PrintTree(tree->right, outFile);
+		PrintTree(tree->right, out);
 	}
+}
+
+ostream& operator<<(ostream& os, BST& rhs)
+{
+	PrintTree(rhs.root, os);
+	return os;
 }

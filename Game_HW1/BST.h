@@ -26,4 +26,6 @@ public:
 
 	void PrintTree(TreeNode* tree, ostream& out);
 
+	friend ostream& operator<<(ostream& os, BST& rhs);
+
 };

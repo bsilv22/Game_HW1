@@ -55,5 +55,7 @@ int main()
 
 	
 	BST gl;
+	gl.Add(g1);
+	cout << gl;
 
 }
