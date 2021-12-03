@@ -61,7 +61,12 @@ int main()
 	gl.Add(g2);
 	gl.Add(g3);
 	gl.Add(g4);
-	gl.Postorder();
-	//cout << gl;
+	//gl.Postorder();
+	cout << gl << endl << endl;
+
+	BST gl2(gl);
+
+	cout << gl2;
+	
 
 }

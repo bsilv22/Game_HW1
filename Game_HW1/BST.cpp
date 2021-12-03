@@ -1,3 +1,26 @@
+//****************************************************
+// File: BST.cpp
+//
+// Purpose: To create a binary search tree 
+//
+// Written By: Brett Silver
+//
+// Compiler: Visual C++ 2019
+//
+// Update Information
+// ------------------
+//
+// Name: Brett Silver
+// Date: 13/3/2021
+// Description: This file helps create a binary search tree with the use of multiple functions
+//
+// Name: Brett Silver
+// Date: 13/3/2021
+// Description: Added a binary search tree for the game class
+//
+//**************************************************** 
+
+
 #include "Game.h"
 #include <string>
 #include <ostream>
@@ -5,6 +28,10 @@
 #include <fstream>
 #include "BST.h"
 using namespace std;
+
+
+
+
 
 //****************************************************
 // Function: Default Constructor
@@ -24,9 +51,23 @@ BST::BST()
 	root = nullptr;
 }
 
+//****************************************************
+// Function: Destructor
+//
+// Purpose: Erases all information after class object goes out of scope
+//
+// Update Information
+// ---
+//
+// Name: Brett Silver
+// Date: 12/3/2021
+// Description: Sets the tree to a default value
+// Big O = O(1)
+//**************************************************** 
 BST::~BST()
 {
-	root = nullptr;
+	Clear();
+	cout << "Destructor called" << endl;
 }
 
 
@@ -239,3 +280,62 @@ void BST::Postorder()
 {
 	Postorder(root);
 }
+
+
+//****************************************************
+// Function: Clear
+//
+// Purpose: To delete binart search tree
+//
+// Update Information
+// ---
+//
+// Name: Brett Silver
+// Date: 12/3/2021
+// Description: This function clears out the entire search tree
+// Big O = O(n)
+//**************************************************** 
+void BST::Clear() {
+	Clear(root);
+	root = nullptr;
+}
+
+//****************************************************
+// Function: Clear
+//
+// Purpose: To delete binart search tree
+//
+// Update Information
+// ---
+//
+// Name: Brett Silver
+// Date: 12/3/2021
+// Description: This function clears out the entire search tree. This is the helper function
+// Big O = O(n)
+//**************************************************** 
+void BST::Clear(TreeNode*& tree)
+{
+	if (tree != nullptr)
+	{
+		Clear(tree->left);
+		Clear(tree->right);
+		delete tree;
+	}
+}
+
+/*
+BST::BST(const BST& rhs)
+{
+	if (rhs == nullptr)
+		copy = nullptr;
+	else
+	{
+		copy = new TreeNode;
+		copy->info = originalTree->info;
+		BSTcopy(copy->left, originalTree->left);
+		BSTcopy(copy->right, originalTree->right);
+	}
+}
+
+*/
+
