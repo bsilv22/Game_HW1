@@ -50,12 +50,18 @@ using namespace std;
 int main()
 {
 
-	game g1("zarry", "E", 24);
-	game g2("ybby", "T", 35);
+	game g1("GTA", "E", 24);
+	game g2("Halo", "T", 35);
+	game g3("Tom Clancy", "M", 20);
+	game g4("COD", "M", 30);
 
 	
 	BST gl;
 	gl.Add(g1);
-	cout << gl;
+	gl.Add(g2);
+	gl.Add(g3);
+	gl.Add(g4);
+	gl.Postorder();
+	//cout << gl;
 
 }

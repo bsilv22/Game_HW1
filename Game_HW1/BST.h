@@ -20,6 +20,7 @@ private:
 
 public:
 	BST();
+	~BST();
 	
 	void Add(game g);
 	void Add(TreeNode*& tree, game g);
@@ -27,5 +28,14 @@ public:
 	void PrintTree(TreeNode* tree, ostream& out);
 
 	friend ostream& operator<<(ostream& os, BST& rhs);
+
+	void Inorder(TreeNode* tree);
+	void Inorder();
+
+	void Preorder(TreeNode* tree);
+	void Preorder();
+
+	void Postorder(TreeNode* tree);
+	void Postorder();
 
 };
