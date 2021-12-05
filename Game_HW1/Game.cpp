@@ -8,10 +8,10 @@
 // Compiler: Visual C++ 2019
 //
 // Update Information
-// ------------------
+// Added operator overload for < and > to comapre titles
 //
 // Name: Brett Silver
-// Date: 9/6/2021
+// Date: 12/5/2021
 // Description: Has constructor definitions, and operator definitions 
 //
 // Name: Brett Silver

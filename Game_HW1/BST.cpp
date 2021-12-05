@@ -62,7 +62,7 @@ BST::BST()
 // Name: Brett Silver
 // Date: 12/3/2021
 // Description: Sets the tree to a default value
-// Big O = O(1)
+// Big O = O(n)
 //**************************************************** 
 BST::~BST()
 {
@@ -337,12 +337,12 @@ void BST::Clear(TreeNode*& tree)
 // Description: This function goes through the binary search tree and counts how many nodes there are
 // Big O = O(n)
 //**************************************************** 
-int BST::GetLength(TreeNode* tree)
+int BST::Size(TreeNode* tree)
 {
 	if (tree == nullptr)
 		return 0;
 	else
-		return GetLength(tree->left) + GetLength(tree->right) + 1;
+		return Size(tree->left) + Size(tree->right) + 1;
 }
 
 //****************************************************
@@ -365,6 +365,19 @@ TreeNode* BST::getRoot()
 }
 
 
+//****************************************************
+// Function: RetrieveItem
+//
+// Purpose: To find a game inside of the binary search tree
+//
+// Update Information
+// ---
+//
+// Name: Brett Silver
+// Date: 12/4/2021
+// Description: This function helps access the variable root which is a private member variable
+// Big O = O(log n)
+//**************************************************** 
 void BST::RetrieveItem(TreeNode* tree, game& item, bool& found)
 {
 	if (tree == nullptr)
@@ -380,8 +393,21 @@ void BST::RetrieveItem(TreeNode* tree, game& item, bool& found)
 	}
 }
 
+//****************************************************
+// Function: GetPrice
+//
+// Purpose: To get the price of a game
+//
+// Update Information
+// ---
+//
+// Name: Brett Silver
+// Date: 12/4/2021
+// Description: This function helps use retreiveItem in order to get the price of a game
+// Big O = O(log n)
+//**************************************************** 
 
-bool BST::GetScore(string name, double& price)
+bool BST::GetPrice(string name, double& price)
 {
 	game g;
 	g.setTitle(name);
@@ -393,6 +419,20 @@ bool BST::GetScore(string name, double& price)
 	
 }
 
+
+//****************************************************
+// Function: CopyTree
+//
+// Purpose: To make a deep copy of the entire tree
+//
+// Update Information
+// ---
+//
+// Name: Brett Silver
+// Date: 12/4/2021
+// Description: This function helps create a copy of the bindary search tree
+// Big O = O(n)
+//**************************************************** 
 void BST::CopyTree(TreeNode*& copy,	const TreeNode* originalTree)
 {
 	if (originalTree == nullptr)
@@ -401,12 +441,26 @@ void BST::CopyTree(TreeNode*& copy,	const TreeNode* originalTree)
 	{
 		copy = new TreeNode;
 		copy->info = originalTree->info;
-		
 		CopyTree(copy->left, originalTree->left);
 		CopyTree(copy->right, originalTree->right);
+		
 	}
 }
 
+
+//****************************************************
+// Function: operator= overload
+//
+// Purpose: To overwrite one binary search tree to another
+//
+// Update Information
+// ---
+//
+// Name: Brett Silver
+// Date: 12/4/2021
+// Description: This function helps delete a binary search tree and overwrite that tree with another
+// Big O = O(n)
+//**************************************************** 
 BST& BST::operator=(const BST& rhs)
 {
 	this->Clear();
@@ -414,6 +468,20 @@ BST& BST::operator=(const BST& rhs)
 	return *this;
 }
 
+
+//****************************************************
+// Function: Copy constructor
+//
+// Purpose: To create a new binary search tree as a copy of another
+//
+// Update Information
+// ---
+//
+// Name: Brett Silver
+// Date: 12/4/2021
+// Description: This function creates a brand new tree as a deep copy of another
+// Big O = O(n)
+//**************************************************** 
 
 BST::BST(const BST& rhs)
 {
