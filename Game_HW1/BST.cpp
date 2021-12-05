@@ -67,7 +67,7 @@ BST::BST()
 BST::~BST()
 {
 	Clear();
-	cout << "Destructor called" << endl;
+	
 }
 
 
@@ -323,19 +323,101 @@ void BST::Clear(TreeNode*& tree)
 	}
 }
 
-/*
-BST::BST(const BST& rhs)
+
+//****************************************************
+// Function: GetLength
+//
+// Purpose: To find the size of the binary search tree
+//
+// Update Information
+// ---
+//
+// Name: Brett Silver
+// Date: 12/4/2021
+// Description: This function goes through the binary search tree and counts how many nodes there are
+// Big O = O(n)
+//**************************************************** 
+int BST::GetLength(TreeNode* tree)
 {
-	if (rhs == nullptr)
+	if (tree == nullptr)
+		return 0;
+	else
+		return GetLength(tree->left) + GetLength(tree->right) + 1;
+}
+
+//****************************************************
+// Function: getRoot
+//
+// Purpose: To access the root member variable
+//
+// Update Information
+// ---
+//
+// Name: Brett Silver
+// Date: 12/4/2021
+// Description: This function helps access the variable root which is a private member variable
+// Big O = O(1)
+//**************************************************** 
+
+TreeNode* BST::getRoot()
+{
+	return root;
+}
+
+
+void BST::RetrieveItem(TreeNode* tree, game& item, bool& found)
+{
+	if (tree == nullptr)
+		found = false;
+	else if (item.getTitle() < tree->info.getTitle())
+		RetrieveItem(tree->left, item, found);
+	else if (item.getTitle() > tree->info.getTitle())
+		RetrieveItem(tree->right, item, found);
+	else
+	{
+		item = tree->info;
+		found = true;
+	}
+}
+
+
+bool BST::GetScore(string name, double& price)
+{
+	game g;
+	g.setTitle(name);
+	bool found;
+	RetrieveItem(root, g, found);
+	if (found) { price = g.getPrice(); }
+	return found;
+	
+	
+}
+
+void BST::CopyTree(TreeNode*& copy,	const TreeNode* originalTree)
+{
+	if (originalTree == nullptr)
 		copy = nullptr;
 	else
 	{
 		copy = new TreeNode;
 		copy->info = originalTree->info;
-		BSTcopy(copy->left, originalTree->left);
-		BSTcopy(copy->right, originalTree->right);
+		
+		CopyTree(copy->left, originalTree->left);
+		CopyTree(copy->right, originalTree->right);
 	}
 }
 
-*/
+BST& BST::operator=(const BST& rhs)
+{
+	this->Clear();
+	this->CopyTree(this->root, rhs.root);
+	return *this;
+}
+
+
+BST::BST(const BST& rhs)
+{
+	*this = rhs;
+	
+}
 

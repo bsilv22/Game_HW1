@@ -46,6 +46,8 @@ private:
 	void Preorder(TreeNode* tree);
 	void Postorder(TreeNode* tree);
 	void Clear(TreeNode*& tree);
+	void CopyTree(TreeNode*& copy, const TreeNode* originalTree);
+	void RetrieveItem(TreeNode* tree, game& item, bool& found);
 
 public:
 	BST();
@@ -59,9 +61,18 @@ public:
 	void Inorder();	
 	void Preorder();
 	void Postorder();
-
+	int GetLength(TreeNode* tree);
 	void Clear();
-
+	bool GetScore(string name, double& score);
+	
 	BST(const BST& rhs);
+
+	
+
+	bool GetPrice(string name, double& score);
+
+	BST& operator=(const BST& rhs);
+
+	TreeNode* getRoot();
 
 };

@@ -54,6 +54,7 @@ int main()
 	game g2("Halo", "T", 35);
 	game g3("Tom Clancy", "M", 20);
 	game g4("COD", "M", 30);
+	game g5("Tetris", "E", 15);
 
 	
 	BST gl;
@@ -61,12 +62,19 @@ int main()
 	gl.Add(g2);
 	gl.Add(g3);
 	gl.Add(g4);
+
+	double x = 5;
+	
 	//gl.Postorder();
-	cout << gl << endl << endl;
+	
 
-	BST gl2(gl);
+	BST gl2;
+	gl2 = gl;
+	gl.Add(g5);
+	
 
-	cout << gl2;
+	cout << gl.GetScore("COhD", x);
+	cout << x;
 	
 
 }
